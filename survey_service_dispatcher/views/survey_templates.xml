@@ -3,6 +3,26 @@
     <template id="survey_fill_form_start_dispatcher" inherit_id="survey.survey_fill_form_start">
         <xpath expr="//div[@class='wrap o_survey_start']" position="replace">
 
+            <t t-if="survey.is_auto_start and not survey.is_service_dispatcher">
+                <!-- Fullscreen Overlay -->
+                <div class="o_survey_start d-flex flex-column align-items-center justify-content-center bg-white"
+                    style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 9999;">
+
+                    <div class="text-center">
+                        <span class="fa fa-spinner fa-spin fa-4x text-primary mb-4"></span>
+                        <h2 class="text-muted fw-light">Starting survey...</h2>
+                    </div>
+
+                    <!-- Hidden button to trigger submission -->
+                    <button type="submit" value="start" class="d-none" id="survey_auto_start_trigger"></button>
+                </div>
+            </t>
+            <t t-else="">
+                <div class="wrap">
+                    <t t-call="survey.survey_content_standard" />
+                </div>
+            </t>
+
             <!-- KEEP ORIGINAL CONTENT IF NOT DISPATCHER -->
             <div class="wrap o_survey_start" t-if="not survey.is_service_dispatcher">
                 <div class='mb32'>

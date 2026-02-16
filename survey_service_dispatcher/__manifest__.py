@@ -1,4 +1,3 @@
-# __manifest__.py
 {
     'name': 'Survey Service Dispatcher',
     'version': '1.0',
@@ -16,6 +15,7 @@
     'assets': {
         'web.assets_frontend': [
             'survey_service_dispatcher/static/src/js/survey_auto_next.js',
+            'survey_service_dispatcher/static/src/js/survey_auto_start.js',
         ],
     },
     'installable': True,
