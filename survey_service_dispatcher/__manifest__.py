@@ -1,3 +1,4 @@
+# __manifest__.py
 {
     'name': 'Survey Service Dispatcher',
     'version': '1.0',
@@ -11,6 +12,7 @@
     'data': [
         'views/survey_survey_views.xml',
         'views/survey_templates.xml',
+        'views/survey_end_template.xml',
     ],
     'assets': {
         'web.assets_frontend': [

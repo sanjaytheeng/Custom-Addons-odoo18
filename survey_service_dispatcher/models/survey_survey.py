@@ -17,3 +17,5 @@ class Survey(models.Model):
         string="Start Automatically",
         help="If checked, the start page will be skipped and the survey will begin immediately."
     )
+    
+    is_custom_done_page = fields.Boolean("Simple Finish Page", default=False)

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="survey_fill_form_done_custom" model="ir.ui.view">
+        <field name="name">survey.fill_form_done.custom</field>
+        <field name="inherit_id" ref="survey.survey_fill_form_done"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[hasclass('o_survey_finished')]" position="replace">
+                <!-- Condition: If custom page is enabled -->
+                <t t-if="survey.is_custom_done_page">
+                    <div class="o_survey_finished mt32 mb32 text-center d-flex flex-column align-items-center justify-content-center" style="min-height: 40vh;">
+                        <span class="fa fa-check-circle fa-5x text-success mb-4"></span>
+                        <h1 class="display-4 fw-bold">Thank You!</h1>
+                        <p class="lead text-muted mb-5">Your response has been successfully recorded.</p>
+
+                        <a href="/" class="btn btn-primary btn-lg px-5 shadow-sm">
+                            <i class="fa fa-home me-2"></i> Back to Homepage
+                        </a>
+                    </div>
+                </t>
+
+                <!-- Else: Show original Odoo logic -->
+                <t t-else="">
+                    <div class="o_survey_finished mt32 mb32">
+                        <h1 class="fs-2">
+                            <t t-if="survey.scoring_type != 'no_scoring'">
+                                You scored <t t-out="answer.scoring_percentage"/>%
+                            </t>
+                            <t t-else="">Thank you!</t>
+                        </h1>
+                        <!-- ... rest of the original Odoo content ... -->
+                        <div t-field="survey.description_done" class="oe_no_empty" />
+                        <div class="row">
+                            <div class="col">
+                                <t t-call="survey.survey_button_retake"/>
+                                <!-- Note: Include the original inner logic here if you want to keep it functional -->
+                            </div>
+                        </div>
+                    </div>
+                </t>
+            </xpath>
+        </field>
+    </record>
+</odoo>
