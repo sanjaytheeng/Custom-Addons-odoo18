@@ -3,25 +3,20 @@
     <template id="survey_fill_form_start_dispatcher" inherit_id="survey.survey_fill_form_start">
         <xpath expr="//div[@class='wrap o_survey_start']" position="replace">
 
-            <t t-if="survey.is_auto_start and not survey.is_service_dispatcher">
-                <!-- Fullscreen Overlay -->
-                <div class="o_survey_start d-flex flex-column align-items-center justify-content-center bg-white"
-                    style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 9999;">
+        <t t-if="survey.is_auto_start and not survey.is_service_dispatcher">
+            <!-- Fullscreen Overlay -->
+            <div class="o_survey_start d-flex flex-column align-items-center justify-content-center bg-white"
+                 style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 9999;">
 
-                    <div class="text-center">
-                        <span class="fa fa-spinner fa-spin fa-4x text-primary mb-4"></span>
-                        <h2 class="text-muted fw-light">Starting survey...</h2>
-                    </div>
+                <div class="text-center">
+                    <span class="fa fa-spinner fa-spin fa-4x text-primary mb-4"></span>
+                    <h2 class="text-muted fw-light">Starting survey...</h2>
+                </div>
 
-                    <!-- Hidden button to trigger submission -->
-                    <button type="submit" value="start" class="d-none" id="survey_auto_start_trigger"></button>
-                </div>
-            </t>
-            <t t-else="">
-                <div class="wrap">
-                    <t t-call="survey.survey_content_standard" />
-                </div>
-            </t>
+                <!-- Hidden button to trigger submission -->
+                <button type="submit" value="start" class="d-none" id="survey_auto_start_trigger"></button>
+            </div>
+        </t>
 
             <!-- KEEP ORIGINAL CONTENT IF NOT DISPATCHER -->
             <div class="wrap o_survey_start" t-if="not survey.is_service_dispatcher">
@@ -52,8 +47,8 @@
                 <style>
                     .o_survey_header { display: none !important; }
                     h1[t-field="survey.title"], .o_survey_main_title, .jumbotron h1 {
-            display: none !important;
-        }
+                    display: none !important;
+                }
                 </style>
 
                 <div class="text-center mb-4">
@@ -115,12 +110,12 @@
                         </a>
 
                         <!-- 4. Psychiatry -->
-                        <a t-att-href="survey.url_psychiatry or '#'" class="text-decoration-none text-dark">
+                        <a t-att-href="survey.url_family_therapy or '#'" class="text-decoration-none text-dark">
                             <div class="card mb-4 shadow-sm" style="background-color: #f0d5d5; cursor: pointer; border: 2px solid #c95d40; border-radius: 12px; min-height: 120px;">
                                 <div class="card-body d-flex align-items-center justify-content-between p-4">
                                     <div class="flex-grow-1">
-                                        <h5 class="fw-bold mb-2" style="color: #6b2c2c; font-size: 1.25rem;">Psychiatry</h5>
-                                        <small class="text-muted d-block" style="color: #6b2c2c !important; font-size: 0.95rem;">Psychiatric evaluations, diagnoses, and medication</small>
+                                        <h5 class="fw-bold mb-2" style="color: #6b2c2c; font-size: 1.25rem;">Family Therapy</h5>
+                                        <small class="text-muted d-block" style="color: #6b2c2c !important; font-size: 0.95rem;">Family evaluations, diagnoses, and medication</small>
                                     </div>
                                     <div class="rounded-circle d-flex align-items-center justify-content-center flex-shrink-0 ms-3" style="width: 50px; height: 50px; background-color: #c95d40 !important;">
                                         <i class="fa fa-medkit text-white" style="font-size: 1.5rem;"></i>
