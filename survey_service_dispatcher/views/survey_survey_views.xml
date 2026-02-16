@@ -10,6 +10,7 @@
             <xpath expr="//field[@name='user_id']" position="after">
                 <field name="is_service_dispatcher"/>
                 <field name="is_auto_start"/>
+                <field name="is_custom_done_page" string="Use Simple Finish Page"/>
             </xpath>
 
             <xpath expr="//page[@name='options']" position="after">
